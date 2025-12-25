@@ -169,7 +169,6 @@
   }
 }
 
-/* Humelixa Animation Keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -204,8 +203,19 @@
   }
 }
 
-/* Humelixa Utility Classes */
 @layer utilities {
+  .container {
+    @apply mx-auto max-w-7xl px-5 py-32 md:px-8;
+  }
+
+  .tagline {
+    @apply text-gold font-mono text-sm tracking-widest uppercase;
+  }
+
+  .heading-2 {
+    @apply font-serif text-3xl leading-tight font-medium tracking-tight md:text-5xl;
+  }
+
   .animate-fade-in-up {
     animation: fadeInUp 1s var(--ease-smooth);
   }
@@ -235,22 +245,10 @@
   }
 
   .gold-line {
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-gold),
-      transparent
-    );
-    width: 100%;
-    max-width: 200px;
-    margin: 2rem auto;
+    @apply via-gold mx-auto h-px w-full max-w-50 bg-linear-to-r from-transparent to-transparent;
   }
 
   .gold-line-left {
-    height: 1px;
-    background: linear-gradient(90deg, var(--color-gold), transparent);
-    width: 120px;
-    margin-bottom: 1.5rem;
+    @apply from-gold my-6 h-px w-30 bg-linear-to-r to-transparent;
   }
 }

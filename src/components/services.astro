@@ -1,7 +1,8 @@
 ---
+import ServiceCard from "./service-card.astro";
+
 const services = [
   {
-    icon: "◆",
     title: "Financing Built for Internationals",
     description:
       "Structured, lender-matched financing support tailored to non-German backgrounds. We speak fluent documentation.",
@@ -14,7 +15,6 @@ const services = [
     ],
   },
   {
-    icon: "◆",
     title: "Curated Investor-Grade Portfolio",
     description:
       "Pre-vetted properties selected for fundamentals, not hype. Each property meets our strict criteria for cashflow and risk.",
@@ -27,7 +27,6 @@ const services = [
     ],
   },
   {
-    icon: "◆",
     title: "End-to-End Execution",
     description:
       "From sourcing to due diligence to ongoing management. Stay passive while we handle the complexity.",
@@ -42,44 +41,20 @@ const services = [
 ];
 ---
 
-<section class="bg-card px-8 py-32" id="services">
-  <div class="reveal mb-20 text-center">
-    <span
-      class="text-gold mb-4 block font-mono text-[0.7rem] tracking-[0.3em] uppercase"
-    >
-      02 — Our Expertise
-    </span>
-    <h2
-      class="mx-auto max-w-3xl font-serif text-[clamp(2rem,4vw,3rem)] leading-tight font-medium tracking-tight"
-    >
-      Three pillars of <em class="text-gold italic">complete guidance</em>
-    </h2>
-    <div class="gold-line mt-6"></div>
-  </div>
+<section id="services" class="bg-card">
+  <div class="container space-y-16">
+    <div class="reveal space-y-4 text-center">
+      <p class="tagline">Our Expertise</p>
+      <h2 class="heading-2">
+        Three pillars of <em class="text-gold italic">complete guidance</em>
+      </h2>
+      <div class="gold-line"></div>
+    </div>
 
-  <div
-    class="bg-gold-dim border-gold-dim mx-auto grid max-w-6xl grid-cols-1 gap-px border md:grid-cols-2 lg:grid-cols-3"
-  >
-    {
-      services.map((service) => (
-        <div class="bg-card hover:bg-popover reveal p-10 transition-all duration-300">
-          <div class="border-gold text-gold mb-6 flex h-12 w-12 items-center justify-center border text-xl">
-            {service.icon}
-          </div>
-          <h3 class="mb-4 font-serif text-xl font-medium">{service.title}</h3>
-          <p class="text-muted-foreground mb-6 text-sm">
-            {service.description}
-          </p>
-          <ul class="space-y-0">
-            {service.features.map((feature) => (
-              <li class="text-subtle border-gold-dim flex items-center gap-2 border-b py-2 font-mono text-xs">
-                <span class="text-gold">→</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
+    <div
+      class="bg-gold-dim border-gold-dim grid grid-cols-1 gap-px border md:grid-cols-2 lg:grid-cols-3"
+    >
+      {services.map((service) => <ServiceCard {...service} />)}
+    </div>
   </div>
 </section>
