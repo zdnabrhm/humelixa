@@ -1,35 +1,38 @@
 ---
 interface Props {
   quote: string;
-  initials: string;
   name: string;
   role: string;
 }
 
-const { quote, initials, name, role } = Astro.props;
+const { quote, name, role } = Astro.props;
 ---
 
 <div
   class="bg-card border-gold-dim hover:border-gold reveal border p-10 transition-all duration-300"
 >
-  <p class="text-foreground mb-8 font-serif text-lg leading-relaxed italic">
-    <span class="text-gold -mb-4 block text-5xl leading-none opacity-50">"</span
+  <p class="text-foreground font-serif text-lg leading-relaxed italic">
+    <span class="text-gold -mb-4 block text-5xl leading-none opacity-70">"</span
     >
     {quote}
   </p>
-  <div class="flex items-center gap-4">
+
+  <div class="mt-6 flex gap-4">
     <div
-      class="border-gold text-gold flex h-12 w-12 items-center justify-center border font-serif text-base"
+      class="border-gold text-gold flex size-12 items-center justify-center border font-serif"
     >
-      {initials}
+      {
+        name
+          .split(" ")
+          .map((word) => word[0].toUpperCase())
+          .join("")
+      }
     </div>
-    <div>
-      <div class="font-sans text-sm font-semibold">{name}</div>
-      <div
-        class="text-subtle font-mono text-[0.7rem] tracking-[0.05em] uppercase"
-      >
+    <div class="space-y-1">
+      <p class="font-sans text-sm font-semibold">{name}</p>
+      <p class="font-mono text-xs tracking-wider text-neutral-400 uppercase">
         {role}
-      </div>
+      </p>
     </div>
   </div>
 </div>
