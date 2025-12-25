@@ -1,73 +1,50 @@
+---
+import { Button } from "./ui/button";
+---
+
 <section
   id="hero"
-  class="relative flex min-h-screen items-center justify-center overflow-hidden px-8 py-32"
+  class="flex min-h-screen items-center justify-center overflow-hidden px-5 py-32 md:px-8"
 >
-  <!-- Background Effects -->
-  <div class="absolute inset-0 -z-10">
-    <div
-      class="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,oklch(0.76_0.12_85/3%)_0%,transparent_50%),radial-gradient(ellipse_at_80%_20%,oklch(0.76_0.12_85/2%)_0%,transparent_50%)]"
-    >
-    </div>
-  </div>
-
-  <!-- Grid Pattern -->
-  <div
-    class="hero-grid absolute inset-0 -z-10 opacity-50"
-    style="background-image: linear-gradient(oklch(0.76 0.12 85 / 3%) 1px, transparent 1px), linear-gradient(90deg, oklch(0.76 0.12 85 / 3%) 1px, transparent 1px); background-size: 100px 100px;"
-  >
-  </div>
-
-  <div class="animate-fade-in-up max-w-4xl text-center">
-    <span
-      class="text-gold border-gold-dim mb-8 inline-block border px-4 py-2 font-mono text-[0.7rem] tracking-[0.3em] uppercase"
+  <div class="animate-fade-in-up max-w-6xl text-center text-balance">
+    <p
+      class="text-gold border-gold-dim mx-auto w-fit border px-4 py-2 font-mono text-xs tracking-widest uppercase md:text-sm"
     >
       Investment Property Consulting
-    </span>
+    </p>
 
     <h1
-      class="mb-6 font-serif text-[clamp(2.5rem,6vw,4.5rem)] leading-tight font-normal tracking-tight"
+      class="mt-6 font-serif text-5xl leading-tight tracking-tight md:text-7xl"
     >
       Germany's real estate market speaks German.
       <em class="text-gold italic">Your wealth shouldn't have to.</em>
     </h1>
 
-    <p
-      class="text-muted-foreground mx-auto mb-12 max-w-2xl font-sans text-[clamp(1.1rem,2vw,1.3rem)]"
-    >
+    <p class="mx-auto mt-6 text-lg text-neutral-400">
       From strategy to purchase to hands-off management. We guide international
       professionals through German residential real estate with the same
       precision the locals expect.
     </p>
 
-    <div class="flex flex-wrap justify-center gap-4">
-      <button
-        class="magnetic bg-gold text-background hover:bg-gold-light relative cursor-pointer overflow-hidden border-none px-10 py-4 font-mono text-sm tracking-[0.1em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_oklch(0.76_0.12_85/20%)]"
-        onclick="document.querySelector('#consultation')?.scrollIntoView({ behavior: 'smooth' })"
-      >
-        Schedule Free Consultation
-      </button>
-      <button
-        class="magnetic text-foreground border-gold-dim hover:border-gold hover:text-gold cursor-pointer border bg-transparent px-8 py-4 font-mono text-sm tracking-[0.1em] uppercase transition-all duration-300"
-        onclick="document.querySelector('#process')?.scrollIntoView({ behavior: 'smooth' })"
-      >
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <Button className="max-md:w-full"> Schedule Free Consultation </Button>
+      <Button variant="outline" className="max-md:w-full">
         Discover Your Options
-      </button>
+      </Button>
     </div>
 
-    <div class="mt-16">
-      <p
-        class="text-subtle mb-6 font-mono text-[0.65rem] tracking-[0.2em] uppercase"
-      >
+    <div class="mt-12 space-y-6">
+      <p class="font-mono text-xs tracking-wide text-neutral-400 uppercase">
         Trusted by professionals from
       </p>
-      <div class="flex flex-wrap justify-center gap-12 opacity-50">
+      <div class="flex flex-wrap justify-center gap-6 md:gap-12">
         {
           ["Silicon Valley", "London", "Dubai", "Singapore", "Zurich"].map(
             (location) => (
-              <span class="text-muted-foreground flex items-center gap-2 font-serif text-sm">
+              <p class="flex items-center gap-2 font-serif text-sm text-neutral-500">
                 <span class="text-gold text-[0.6rem]">◆</span>
                 {location}
-              </span>
+              </p>
             ),
           )
         }
@@ -75,14 +52,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  // Parallax Effect for Hero Grid
-  window.addEventListener("scroll", () => {
-    const scrolled = window.scrollY;
-    const heroGrid = document.querySelector(".hero-grid") as HTMLElement;
-    if (heroGrid && scrolled < window.innerHeight) {
-      heroGrid.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-  });
-</script>
