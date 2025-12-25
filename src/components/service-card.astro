@@ -1,0 +1,35 @@
+---
+import { DiamondIcon } from "@phosphor-icons/react";
+
+interface Props {
+  title: string;
+  description: string;
+  features: string[];
+}
+
+const { title, description, features } = Astro.props;
+---
+
+<div
+  class="bg-card hover:bg-popover reveal space-y-6 p-10 transition-all duration-300"
+>
+  <div class="space-y-3">
+    <div
+      class="border-gold text-gold flex w-fit items-center justify-center border p-4"
+    >
+      <DiamondIcon weight="fill" />
+    </div>
+    <h3 class="font-serif text-xl font-medium">{title}</h3>
+    <p class="text-sm text-neutral-400">{description}</p>
+  </div>
+  <ul class="space-y-0">
+    {
+      features.map((feature) => (
+        <li class="border-gold-dim flex items-center gap-2 border-b py-2 font-mono text-xs">
+          <span class="text-gold">→</span>
+          {feature}
+        </li>
+      ))
+    }
+  </ul>
+</div>
