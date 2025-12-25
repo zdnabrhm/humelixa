@@ -10,6 +10,7 @@
     "format": "pnpm exec prettier ./src --write",
     "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx,.astro",
     "lint:fix": "eslint ./src --ext .js,.ts,.jsx,.tsx,.astro --fix",
+    "check": "pnpm format && pnpm lint",
     "prepare": "husky"
   },
   "dependencies": {
