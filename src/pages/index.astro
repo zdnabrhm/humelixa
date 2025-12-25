@@ -1,10 +1,29 @@
 ---
-import { Button } from "@/components/ui/button";
-import Layout from "@/layouts/main.astro";
+import MainLayout from "@/layouts/main.astro";
+import Navigation from "@/components/navigation";
+import Hero from "@/components/hero.astro";
+import PropertyCalculator from "@/components/property-calculator";
+import Narrative from "@/components/narrative.astro";
+import Services from "@/components/services.astro";
+import Portfolio from "@/components/portfolio.astro";
+import Testimonials from "@/components/testimonials.astro";
+import Metrics from "@/components/metrics.astro";
+import Process from "@/components/process.astro";
+import Comparison from "@/components/comparison.astro";
+import Cta from "@/components/cta.astro";
+import Footer from "@/components/footer.astro";
 ---
 
-<Layout>
-  <main class="grid h-screen place-items-center content-center">
-    <Button>Tailwind Button in Astro!</Button>
-  </main>
-</Layout>
+<MainLayout>
+  <Navigation client:load />
+  <Hero />
+  <Narrative />
+  <Services />
+  <Portfolio />
+  <Testimonials />
+  <Metrics />
+  <Process />
+  <Comparison />
+  <Cta />
+  <Footer />
+</MainLayout>

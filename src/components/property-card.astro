@@ -1,0 +1,77 @@
+---
+interface Props {
+  badge: string;
+  price: string;
+  rent: string;
+  location: string;
+  title: string;
+  size: string;
+  rooms: string;
+  year: string;
+  tags: string[];
+}
+
+const { badge, price, rent, location, title, size, rooms, year, tags } =
+  Astro.props;
+---
+
+<div
+  class="group bg-card border-gold-dim hover:border-gold reveal cursor-pointer overflow-hidden border transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+>
+  <div
+    class="from-popover relative h-64 overflow-hidden bg-gradient-to-br to-[#2a2a2a]"
+  >
+    <div
+      class="to-background/80 absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent"
+    >
+    </div>
+
+    <span
+      class="bg-gold text-background absolute top-4 left-4 z-20 px-3 py-1.5 font-mono text-[0.6rem] tracking-[0.1em]"
+    >
+      {badge}
+    </span>
+
+    <div class="absolute right-4 bottom-4 z-20 flex gap-6">
+      <div class="text-right">
+        <div class="text-foreground font-serif text-xl">{price}</div>
+        <div
+          class="text-subtle font-mono text-[0.6rem] tracking-[0.1em] uppercase"
+        >
+          Asking Price
+        </div>
+      </div>
+      <div class="text-right">
+        <div class="text-foreground font-serif text-xl">{rent}</div>
+        <div
+          class="text-subtle font-mono text-[0.6rem] tracking-[0.1em] uppercase"
+        >
+          Monthly Rent
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-8">
+    <span class="text-gold mb-2 block font-mono text-[0.7rem] tracking-[0.1em]">
+      {location}
+    </span>
+    <h3 class="mb-4 font-serif text-xl font-medium">
+      {title}
+    </h3>
+    <div class="mb-6 flex gap-6">
+      <span class="text-muted-foreground text-sm">{size}</span>
+      <span class="text-muted-foreground text-sm">{rooms}</span>
+      <span class="text-muted-foreground text-sm">{year}</span>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      {
+        tags.map((tag) => (
+          <span class="border-gold-dim text-subtle border px-2.5 py-1 font-mono text-[0.65rem]">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>

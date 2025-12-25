@@ -1,0 +1,94 @@
+---
+const comparisons = [
+  {
+    feature: "International Financing Expertise",
+    humelixa: "Specialized",
+    others: "Limited",
+  },
+  {
+    feature: "Off-Market Property Access",
+    humelixa: "Extensive Network",
+    others: "Portal Only",
+  },
+  {
+    feature: "End-to-End Coordination",
+    humelixa: "Full Service",
+    others: "Transactional",
+  },
+  {
+    feature: "Passive Management Options",
+    humelixa: "Available",
+    others: "Not Offered",
+  },
+  {
+    feature: "Multi-Language Support",
+    humelixa: "EN/DE/AR/CN",
+    others: "German Only",
+  },
+];
+---
+
+<section class="bg-card px-8 py-32" id="comparison">
+  <div class="reveal mb-20 text-center">
+    <span
+      class="text-gold mb-4 block font-mono text-[0.7rem] tracking-[0.3em] uppercase"
+    >
+      06 — The Difference
+    </span>
+    <h2
+      class="mx-auto max-w-3xl font-serif text-[clamp(2rem,4vw,3rem)] leading-tight font-medium tracking-tight"
+    >
+      Why international professionals <em class="text-gold italic"
+        >choose Humelixa</em
+      >
+    </h2>
+    <div class="gold-line mt-6"></div>
+  </div>
+
+  <div class="border-gold-dim reveal mx-auto max-w-4xl border">
+    <!-- Header Row -->
+    <div
+      class="border-gold-dim bg-popover hidden grid-cols-[2fr_1fr_1fr] border-b md:grid"
+    >
+      <div
+        class="text-muted-foreground p-6 font-mono text-[0.7rem] tracking-[0.1em] uppercase"
+      >
+        Capability
+      </div>
+      <div
+        class="text-gold p-6 font-mono text-[0.7rem] tracking-[0.1em] uppercase"
+      >
+        Humelixa
+      </div>
+      <div
+        class="text-muted-foreground p-6 font-mono text-[0.7rem] tracking-[0.1em] uppercase"
+      >
+        Traditional Agents
+      </div>
+    </div>
+
+    {
+      comparisons.map((row) => (
+        <div class="border-gold-dim grid grid-cols-1 border-b last:border-b-0 md:grid-cols-[2fr_1fr_1fr]">
+          <div class="text-muted-foreground bg-popover border-gold-dim border-b p-6 text-sm md:border-b-0 md:bg-transparent">
+            {row.feature}
+          </div>
+          <div class="flex items-center gap-2 p-6 text-sm">
+            <span class="text-subtle mr-2 font-mono text-[0.6rem] uppercase md:hidden">
+              Humelixa:
+            </span>
+            <span class="text-gold">◆</span>
+            {row.humelixa}
+          </div>
+          <div class="border-gold-dim flex items-center gap-2 border-b p-6 text-sm md:border-b-0">
+            <span class="text-subtle mr-2 font-mono text-[0.6rem] uppercase md:hidden">
+              Others:
+            </span>
+            <span class="text-subtle">○</span>
+            {row.others}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

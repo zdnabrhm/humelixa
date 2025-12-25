@@ -1,0 +1,25 @@
+---
+const metrics = [
+  { value: "€2.4B", label: "Properties Under Management" },
+  { value: "94%", label: "Client Satisfaction Rate" },
+  { value: "127", label: "International Clients Served" },
+  { value: "4.6%", label: "Average Rental Yield" },
+];
+---
+
+<section class="bg-popover border-gold-dim border-y px-8 py-24">
+  <div class="mx-auto grid max-w-6xl grid-cols-2 gap-8 lg:grid-cols-4">
+    {
+      metrics.map((metric) => (
+        <div class="reveal text-center">
+          <div class="text-gold mb-2 font-serif text-[clamp(2.5rem,5vw,3.5rem)] leading-none">
+            {metric.value}
+          </div>
+          <div class="text-muted-foreground font-mono text-[0.7rem] tracking-[0.1em] uppercase">
+            {metric.label}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

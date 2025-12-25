@@ -1,0 +1,135 @@
+---
+const footerLinks = {
+  services: [
+    { label: "Financing Support", href: "/" },
+    { label: "Property Sourcing", href: "/" },
+    { label: "Due Diligence", href: "/" },
+    { label: "Property Management", href: "/" },
+  ],
+  company: [
+    { label: "About Us", href: "/" },
+    { label: "Our Team", href: "/" },
+    { label: "Case Studies", href: "/" },
+    { label: "Careers", href: "/" },
+  ],
+  resources: [
+    { label: "Market Reports", href: "/" },
+    { label: "Investment Guide", href: "/" },
+    { label: "Financing FAQ", href: "/" },
+    { label: "Contact", href: "/" },
+  ],
+};
+
+const socialLinks = [
+  { label: "LinkedIn", href: "/" },
+  { label: "Twitter", href: "/" },
+  { label: "Instagram", href: "/" },
+];
+---
+
+<footer class="bg-card border-gold-dim border-t px-8 py-16">
+  <div
+    class="border-gold-dim mx-auto grid max-w-6xl grid-cols-1 gap-16 border-b pb-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]"
+  >
+    <!-- Brand -->
+    <div class="max-w-xs">
+      <span class="mb-4 inline-block font-serif text-2xl font-medium">
+        Humelixa<span class="text-gold">.</span>
+      </span>
+      <p class="text-muted-foreground text-sm leading-relaxed">
+        Investment property consulting for international professionals in
+        Germany. From strategy to purchase to hands-off management.
+      </p>
+    </div>
+
+    <!-- Services Links -->
+    <div>
+      <h4
+        class="text-gold mb-6 font-mono text-[0.7rem] tracking-[0.1em] uppercase"
+      >
+        Services
+      </h4>
+      <ul class="space-y-3">
+        {
+          footerLinks.services.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-muted-foreground hover:text-gold text-sm no-underline transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Company Links -->
+    <div>
+      <h4
+        class="text-gold mb-6 font-mono text-[0.7rem] tracking-[0.1em] uppercase"
+      >
+        Company
+      </h4>
+      <ul class="space-y-3">
+        {
+          footerLinks.company.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-muted-foreground hover:text-gold text-sm no-underline transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Resources Links -->
+    <div>
+      <h4
+        class="text-gold mb-6 font-mono text-[0.7rem] tracking-[0.1em] uppercase"
+      >
+        Resources
+      </h4>
+      <ul class="space-y-3">
+        {
+          footerLinks.resources.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-muted-foreground hover:text-gold text-sm no-underline transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 pt-8 md:flex-row"
+  >
+    <span class="text-subtle font-mono text-[0.7rem]">
+      © 2025 Humelixa GmbH. All rights reserved.
+    </span>
+    <div class="flex gap-6">
+      {
+        socialLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-muted-foreground hover:text-gold font-mono text-[0.7rem] no-underline transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

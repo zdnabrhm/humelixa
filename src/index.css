@@ -1,112 +1,151 @@
+/* Humelixa Brand Fonts - Local */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 100 700;
+  font-serif: swap;
+  src: url("/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: italic;
+  font-weight: 100 700;
+  font-serif: swap;
+  src: url("/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 200 900;
+  font-serif: swap;
+  src: url("/fonts/SourceSerif4-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 200 900;
+  font-serif: swap;
+  src: url("/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-serif: swap;
+  src: url("/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-serif: swap;
+  src: url("/fonts/IBMPlexMono-Medium.ttf") format("truetype");
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/inter";
-
-@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.852 0.199 91.936);
-  --primary-foreground: oklch(0.421 0.095 57.708);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.852 0.199 91.936);
-  --accent-foreground: oklch(0.421 0.095 57.708);
-  --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.905 0.182 98.111);
-  --chart-2: oklch(0.795 0.184 86.047);
-  --chart-3: oklch(0.681 0.162 75.834);
-  --chart-4: oklch(0.554 0.135 66.442);
-  --chart-5: oklch(0.476 0.114 61.907);
+  --background: oklch(0.13 0 0);
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.16 0 0);
+  --card-foreground: oklch(0.96 0 0);
+  --popover: oklch(0.19 0 0);
+  --popover-foreground: oklch(0.96 0 0);
+  --primary: oklch(0.76 0.12 85);
+  --primary-foreground: oklch(0.13 0 0);
+  --secondary: oklch(0.19 0 0);
+  --secondary-foreground: oklch(0.96 0 0);
+  --muted: oklch(0.19 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.76 0.12 85);
+  --accent-foreground: oklch(0.13 0 0);
+  --destructive: oklch(0.55 0.2 25);
+  --border: oklch(0.25 0.02 85);
+  --input: oklch(0.19 0 0);
+  --ring: oklch(0.76 0.12 85);
+  --chart-1: oklch(0.81 0.11 85);
+  --chart-2: oklch(0.76 0.12 85);
+  --chart-3: oklch(0.68 0.1 75);
+  --chart-4: oklch(0.55 0.06 60);
+  --chart-5: oklch(0.42 0.04 55);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.681 0.162 75.834);
-  --sidebar-primary-foreground: oklch(0.987 0.026 102.212);
-  --sidebar-accent: oklch(0.852 0.199 91.936);
-  --sidebar-accent-foreground: oklch(0.421 0.095 57.708);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.795 0.184 86.047);
-  --primary-foreground: oklch(0.421 0.095 57.708);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.795 0.184 86.047);
-  --accent-foreground: oklch(0.421 0.095 57.708);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.905 0.182 98.111);
-  --chart-2: oklch(0.795 0.184 86.047);
-  --chart-3: oklch(0.681 0.162 75.834);
-  --chart-4: oklch(0.554 0.135 66.442);
-  --chart-5: oklch(0.476 0.114 61.907);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.795 0.184 86.047);
-  --sidebar-primary-foreground: oklch(0.987 0.026 102.212);
-  --sidebar-accent: oklch(0.795 0.184 86.047);
-  --sidebar-accent-foreground: oklch(0.421 0.095 57.708);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: oklch(0.1 0 0);
+  --sidebar-foreground: oklch(0.96 0 0);
+  --sidebar-primary: oklch(0.76 0.12 85);
+  --sidebar-primary-foreground: oklch(0.13 0 0);
+  --sidebar-accent: oklch(0.19 0 0);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-border: oklch(0.25 0.02 85);
+  --sidebar-ring: oklch(0.76 0.12 85);
 }
 
 @theme inline {
-  --font-sans: "Inter Variable", sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --color-gold: oklch(0.76 0.12 85);
+  --color-gold-light: oklch(0.81 0.11 85);
+  --color-gold-dark: oklch(0.68 0.1 75);
+  --color-bronze: oklch(0.55 0.06 60);
+  --color-gold-dim: oklch(0.76 0.12 85 / 20%);
+  --color-subtle: oklch(0.42 0 0);
+
+  /* Humelixa Transitions */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Existing shadcn tokens */
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-accent: var(--sidebar-accent);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground)
+    --color-sidebar: var(--sidebar);
+
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
+
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
+
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
+
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
+
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -121,11 +160,97 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans;
+  html {
+    @apply scroll-smooth font-sans;
   }
 
-  html {
-    @apply font-sans;
+  body {
+    @apply bg-background text-foreground overflow-x-clip font-sans leading-relaxed antialiased;
+  }
+}
+
+/* Humelixa Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-gold {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Humelixa Utility Classes */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 1s var(--ease-smooth);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s var(--ease-smooth);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .marble-texture {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-gold),
+      transparent
+    );
+    width: 100%;
+    max-width: 200px;
+    margin: 2rem auto;
+  }
+
+  .gold-line-left {
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+    width: 120px;
+    margin-bottom: 1.5rem;
   }
 }

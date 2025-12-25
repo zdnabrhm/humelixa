@@ -1,0 +1,54 @@
+---
+import TestimonialCard from "./testimonial-card.astro";
+
+const testimonials = [
+  {
+    quote:
+      "As an American expat, I was told my foreign income would limit my borrowing capacity. Humelixa restructured my application and secured financing at 85% LTV—the same rate German citizens receive.",
+    initials: "SM",
+    name: "Sarah Mitchell",
+    role: "Product Director, Tech Unicorn",
+  },
+  {
+    quote:
+      "I wanted passive income without becoming a landlord in a country I don't live in. Humelixa sourced the property, arranged management, and now I receive monthly reports while focusing on my Dubai-based business.",
+    initials: "AK",
+    name: "Ahmed Khalil",
+    role: "Founder, Consulting Firm",
+  },
+  {
+    quote:
+      "The property they recommended in Frankfurt has appreciated 18% in three years while generating consistent rental income. This isn't speculative investing—it's wealth building with German fundamentals.",
+    initials: "LW",
+    name: "Lisa Wang",
+    role: "Investment Banker",
+  },
+];
+---
+
+<section
+  class="from-card to-background bg-gradient-to-b px-8 py-32"
+  id="testimonials"
+>
+  <div class="reveal mb-20 text-center">
+    <span
+      class="text-gold mb-4 block font-mono text-[0.7rem] tracking-[0.3em] uppercase"
+    >
+      04 — Client Stories
+    </span>
+    <h2
+      class="mx-auto max-w-3xl font-serif text-[clamp(2rem,4vw,3rem)] leading-tight font-medium tracking-tight"
+    >
+      Professionals who built German wealth <em class="text-gold italic"
+        >on their terms</em
+      >
+    </h2>
+    <div class="gold-line mt-6"></div>
+  </div>
+
+  <div
+    class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+  >
+    {testimonials.map((testimonial) => <TestimonialCard {...testimonial} />)}
+  </div>
+</section>

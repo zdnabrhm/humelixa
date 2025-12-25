@@ -1,0 +1,26 @@
+---
+interface Props {
+  variant?: "center" | "left";
+  class?: string;
+}
+
+const { variant = "center", class: className = "" } = Astro.props;
+---
+
+{
+  variant === "center" ? (
+    <div
+      class:list={[
+        "via-gold mx-auto my-8 h-px w-full max-w-[200px] bg-gradient-to-r from-transparent to-transparent",
+        className,
+      ]}
+    />
+  ) : (
+    <div
+      class:list={[
+        "from-gold mb-6 h-px w-[120px] bg-gradient-to-r to-transparent",
+        className,
+      ]}
+    />
+  )
+}
