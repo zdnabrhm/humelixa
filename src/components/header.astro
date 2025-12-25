@@ -1,0 +1,22 @@
+---
+interface Props {
+  label: string;
+  class?: string;
+}
+
+const { label, class: className = "" } = Astro.props;
+---
+
+<div class:list={["mb-20 text-center", className]}>
+  <span
+    class="text-gold mb-4 block font-mono text-[0.7rem] tracking-[0.3em] uppercase"
+  >
+    {label}
+  </span>
+  <h2
+    class="mx-auto max-w-3xl font-serif text-[clamp(2rem,4vw,3rem)] leading-tight font-medium tracking-tight"
+  >
+    <slot />
+  </h2>
+  <div class="gold-line mt-6"></div>
+</div>

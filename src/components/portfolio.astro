@@ -1,0 +1,63 @@
+---
+import PropertyCard from "./property-card.astro";
+
+const properties = [
+  {
+    badge: "RENTAL YIELD: 4.8%",
+    price: "€485,000",
+    rent: "€1,950",
+    location: "MUNICH — SCHWABING",
+    title: "Historic Altbau Apartment",
+    size: "78 m²",
+    rooms: "2 Zimmer",
+    year: "Baujahr 1923",
+    tags: ["Stable Tenant", "Prime Location", "Metro Access"],
+  },
+  {
+    badge: "RENTAL YIELD: 5.2%",
+    price: "€320,000",
+    rent: "€1,390",
+    location: "FRANKFURT — NORDEND",
+    title: "Modernized Altbau with Balcony",
+    size: "65 m²",
+    rooms: "2 Zimmer",
+    year: "Baujahr 1910",
+    tags: ["Recently Renovated", "Garden Access", "S-Bahn Nearby"],
+  },
+  {
+    badge: "RENTAL YIELD: 4.5%",
+    price: "€675,000",
+    rent: "€2,530",
+    location: "BERLIN — MITTE",
+    title: "Premium Neubau Penthouse",
+    size: "95 m²",
+    rooms: "3 Zimmer",
+    year: "Baujahr 2019",
+    tags: ["New Construction", "Parking Included", "Elevator"],
+  },
+];
+---
+
+<section class="bg-background px-8 py-32" id="portfolio">
+  <div class="reveal mb-20 text-center">
+    <span
+      class="text-gold mb-4 block font-mono text-[0.7rem] tracking-[0.3em] uppercase"
+    >
+      03 — Curated Properties
+    </span>
+    <h2
+      class="mx-auto max-w-3xl font-serif text-[clamp(2rem,4vw,3rem)] leading-tight font-medium tracking-tight"
+    >
+      Investment-grade opportunities <em class="text-gold italic"
+        >ready for acquisition</em
+      >
+    </h2>
+    <div class="gold-line mt-6"></div>
+  </div>
+
+  <div
+    class="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3"
+  >
+    {properties.map((property) => <PropertyCard {...property} />)}
+  </div>
+</section>
