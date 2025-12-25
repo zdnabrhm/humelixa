@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 interface NavigationProps {
   className?: string;
@@ -26,38 +27,24 @@ export default function Navigation({ className }: NavigationProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const scrollToSection = (selector: string) => {
-    const element = document.querySelector(selector);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <header className="from-background/95 fixed top-0 z-1000 w-full bg-linear-to-b to-transparent backdrop-blur-sm">
       <nav
         className={cn(
-          "mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-6 transition-transform duration-300",
+          "mx-auto flex w-full max-w-7xl items-center justify-between p-5 transition-transform duration-300 md:px-8 md:py-6",
           hidden && "-translate-y-full",
           className,
         )}
       >
         <a
           href="/"
-          className="font-serif text-2xl font-medium tracking-[0.05em] text-neutral-50 no-underline"
+          className="font-serif text-xl font-medium tracking-widest no-underline md:text-2xl"
         >
           Humelixa<span className="text-gold">.</span>
         </a>
-        <button
-          onClick={() => scrollToSection("#consultation")}
-          className={cn(
-            "magnetic border-gold text-gold cursor-pointer border bg-transparent px-6 py-3 font-mono text-xs tracking-widest uppercase",
-            "transition-all duration-300",
-            "hover:bg-gold hover:text-background",
-          )}
-        >
-          Book Consultation
-        </button>
+        <Button variant="outline">
+          <a href="#consultation">Book Consultation</a>
+        </Button>
       </nav>
     </header>
   );
