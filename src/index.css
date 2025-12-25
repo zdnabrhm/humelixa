@@ -213,7 +213,7 @@
   }
 
   .heading-2 {
-    @apply font-serif text-3xl leading-tight font-medium tracking-tight md:text-5xl;
+    @apply font-serif text-3xl leading-tight font-medium tracking-tight text-balance md:text-5xl;
   }
 
   .animate-fade-in-up {

@@ -5,68 +5,61 @@ const steps = [
     title: "Discovery & Strategy",
     description:
       "We analyze your financial profile, goals, and constraints. Then we build a personalized investment strategy aligned with German market realities.",
-    duration: "Week 1-2",
   },
   {
     phase: "PHASE 02",
     title: "Sourcing & Due Diligence",
     description:
       "We present curated opportunities from off-market sources. Every property undergoes rigorous financial, legal, and structural due diligence.",
-    duration: "Week 3-6",
   },
   {
     phase: "PHASE 03",
     title: "Financing & Acquisition",
     description:
       "We coordinate with our lender network and legal partners. Paperwork is prepared, negotiations handled, and the purchase executed seamlessly.",
-    duration: "Week 7-10",
   },
   {
     phase: "PHASE 04",
     title: "Management & Growth",
     description:
       "Property management is activated immediately. You receive monthly reports and can remain completely passive while your German asset builds wealth.",
-    duration: "Ongoing",
   },
 ];
 ---
 
-<section class="bg-background px-8 py-32" id="process">
-  <div class="reveal mb-20 text-center">
-    <span
-      class="text-gold mb-4 block font-mono text-[0.7rem] tracking-[0.3em] uppercase"
-    >
-      05 — Your Journey
-    </span>
-    <h2
-      class="mx-auto max-w-3xl font-serif text-[clamp(2rem,4vw,3rem)] leading-tight font-medium tracking-tight"
-    >
-      From consultation to <em class="text-gold italic">passive income</em>
-    </h2>
-    <div class="gold-line mt-6"></div>
-  </div>
+<section id="process" class="bg-background">
+  <div class="container">
+    <div class="reveal space-y-4 text-center">
+      <p class="tagline">Your Journey</p>
+      <h2 class="heading-2">
+        From consultation to <em class="text-gold italic">passive income</em>
+      </h2>
+      <div class="gold-line"></div>
+    </div>
 
-  <div class="relative mx-auto max-w-4xl">
-    <!-- Timeline Line -->
-    <div class="bg-gold-dim absolute top-0 bottom-0 left-[30px] w-px"></div>
+    <div class="relative mx-auto mt-16 max-w-4xl space-y-8 lg:space-y-12">
+      <!-- Timeline Line (desktop only) -->
+      <div
+        class="bg-gold-dim absolute top-0 bottom-0 left-0 hidden w-px lg:block"
+      >
+      </div>
 
-    {
-      steps.map((step, index) => (
-        <div class="reveal relative mb-16 flex gap-12 last:mb-0">
-          <div class="bg-background border-gold absolute top-2 left-[22px] z-10 h-4 w-4 rounded-full border-2" />
+      {
+        steps.map((step) => (
+          <div class="reveal relative flex flex-col gap-1 lg:flex-row lg:gap-12">
+            <div class="bg-background border-gold absolute top-0 left-0 z-10 hidden size-4 -translate-x-[50%] rounded-full border-2 lg:block" />
 
-          <span class="text-gold min-w-[60px] pt-1 font-mono text-[0.7rem]">
-            {step.phase}
-          </span>
-          <div class="flex-1 pb-8">
-            <h3 class="mb-2 font-serif text-xl font-medium">{step.title}</h3>
-            <p class="text-muted-foreground mb-4">{step.description}</p>
-            <span class="text-subtle border-gold-dim inline-block border px-3 py-1.5 font-mono text-[0.65rem]">
-              {step.duration}
-            </span>
+            <p class="text-gold font-mono text-sm lg:-translate-x-[50%] lg:pt-6">
+              {step.phase}
+            </p>
+
+            <div class="flex-1 space-y-1 lg:space-y-2">
+              <h3 class="font-serif text-xl font-medium">{step.title}</h3>
+              <p class="text-neutral-400 md:text-base">{step.description}</p>
+            </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </section>
