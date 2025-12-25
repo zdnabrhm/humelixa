@@ -1,85 +1,61 @@
 ---
-import Header from "./header.astro";
+import {
+  ScalesIcon,
+  EyeSlashIcon,
+  PlugsConnectedIcon,
+} from "@phosphor-icons/react";
+import { NarrativeCard } from "./narrative-card";
 
 const narrativeCards = [
   {
-    number: "01 / 03",
-    title: "The Financing Gap",
+    number: "01" as const,
+    icon: ScalesIcon,
+    title: "Financing Gap",
     description:
       "International income streams, complex residency status, and non-German credit history create invisible barriers. Traditional German lenders speak a language your documentation doesn't match.",
-    scenario: {
-      icon: "⚡",
-      text: '"I was approved for 60% of what my German colleagues received. Same salary, same company, different outcomes."',
-    },
+    scenarioText:
+      "I was approved for 60% of what my German colleagues received. Same salary, same company, different outcomes.",
   },
   {
-    number: "02 / 03",
-    title: "The Information Asymmetry",
+    number: "02" as const,
+    icon: EyeSlashIcon,
+    title: "Information Asymmetry",
     description:
       "Properties that perform aren't listed on portals. The best opportunities move through networks before ever reaching public markets. Knowing where to look is as valuable as what you're looking for.",
-    scenario: {
-      icon: "⌛",
-      text: '"I spent 8 months searching online. The properties my German colleague mentioned? I never saw them advertised anywhere."',
-    },
+    scenarioText:
+      "I spent 8 months searching online. The properties my German colleague mentioned? I never saw them advertised anywhere.",
   },
   {
-    number: "03 / 03",
-    title: "The Management Void",
+    number: "03" as const,
+    icon: PlugsConnectedIcon,
+    title: "Management Void",
     description:
       "Owning property in a country where you don't live creates practical challenges. Language barriers, tenant relations, maintenance coordination, and regulatory compliance demand ongoing attention.",
-    scenario: {
-      icon: "🏠",
-      text: "\"My tenant called about a burst pipe at 11 PM. I couldn't help because I was in Singapore and couldn't reach the plumber.\"",
-    },
+    scenarioText:
+      "My tenant called about a burst pipe at 11 PM. I couldn't help because I was in Singapore and couldn't reach the plumber.",
   },
 ];
 ---
 
 <section
-  class="from-background via-card to-background bg-gradient-to-b px-8 py-32"
   id="narrative"
+  class="via-gold/10 from-background to-background bg-linear-to-b"
 >
-  <div class="reveal mb-20 text-center">
-    <span
-      class="text-gold mb-4 block font-mono text-[0.7rem] tracking-[0.3em] uppercase"
-    >
-      01 — The Challenge
-    </span>
-    <h2
-      class="mx-auto max-w-3xl font-serif text-[clamp(2rem,4vw,3rem)] leading-tight font-medium tracking-tight"
-    >
-      The German real estate market rewards those who understand it.
-      <em class="text-gold italic">Everyone else pays a premium.</em>
-    </h2>
-  </div>
+  <div class="mx-auto max-w-7xl px-5 pb-32 md:px-8">
+    <div class="reveal space-y-4 text-center">
+      <p class="text-gold block font-mono text-sm tracking-widest uppercase">
+        The Challenge
+      </p>
+      <h2
+        class="mx-auto max-w-5xl font-serif text-3xl leading-tight font-medium tracking-tight text-balance md:text-5xl"
+      >
+        The German real estate market rewards those who understand it.
+        <em class="text-gold italic">Everyone else pays a premium.</em>
+      </h2>
+    </div>
 
-  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-3">
-    {
-      narrativeCards.map((card) => (
-        <div class="group bg-card border-gold-dim hover:border-gold reveal relative overflow-hidden border p-12 transition-all duration-400 hover:-translate-y-1">
-          <div class="bg-gold absolute top-0 left-0 h-0 w-0.5 transition-all duration-400 group-hover:h-full" />
-
-          <span class="text-gold mb-6 block font-mono text-[0.7rem] tracking-[0.1em]">
-            {card.number}
-          </span>
-          <h3 class="mb-4 font-serif text-2xl font-medium">{card.title}</h3>
-          <p class="text-muted-foreground mb-8">{card.description}</p>
-
-          <div class="bg-popover border-gold-dim border border-dashed p-6">
-            <div class="text-subtle mb-4 font-mono text-[0.65rem] tracking-[0.1em] uppercase">
-              Common Scenario
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="border-gold flex h-10 w-10 shrink-0 items-center justify-center border text-xl">
-                {card.scenario.icon}
-              </div>
-              <div class="text-muted-foreground text-sm">
-                {card.scenario.text}
-              </div>
-            </div>
-          </div>
-        </div>
-      ))
-    }
+    <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+      {narrativeCards.map((card) => <NarrativeCard {...card} />)}
+    </div>
   </div>
 </section>
