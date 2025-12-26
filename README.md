@@ -1,13 +1,22 @@
-# Astro with Tailwind
+# Humelixa
 
-```sh
-pnpm create astro@latest -- --template with-tailwindcss
-```
+From strategy to purchase to hands-off management. Expert guidance for international professionals building wealth through German residential real estate.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
+## About
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
+Humelixa is a consulting website for international professionals looking to invest in German residential real estate. We help clients from Silicon Valley, London, Dubai, Singapore, Zurich, and beyond navigate the German property market.
 
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+### Services
+
+- **Financing Built for Internationals** - Structured, lender-matched financing support tailored to non-German backgrounds
+- **Curated Investor-Grade Portfolio** - Pre-vetted properties selected for fundamentals, cashflow, and risk management
+- **End-to-End Execution** - From sourcing to due diligence to ongoing property management
+
+## Tech Stack
+
+- [Astro](https://astro.build/) v5
+- [React](https://react.dev/) v19
+- [Tailwind CSS](https://tailwindcss.com/) v4
+- TypeScript
+- [Shadcn/UI](https://ui.shadcn.com/) components
+- [Phosphor Icons](https://phosphoricons.com/)
