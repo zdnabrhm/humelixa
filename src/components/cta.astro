@@ -1,4 +1,5 @@
 ---
+import { CalButton } from "./cal-button";
 import { Button } from "./ui/button";
 ---
 
@@ -24,7 +25,9 @@ import { Button } from "./ui/button";
     </div>
 
     <div class="mt-8 flex flex-wrap justify-center gap-4">
-      <Button className="max-md:w-full">Schedule Free Consultation</Button>
+      <CalButton className="max-md:w-full" client:load>
+        Schedule Free Consultation
+      </CalButton>
       <Button variant="outline" className="max-md:w-full"
         >Discover Your Options</Button
       >

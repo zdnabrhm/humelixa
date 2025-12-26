@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
+import { CalButton } from "./cal-button";
 
 interface NavigationProps {
   className?: string;
@@ -42,9 +42,8 @@ export default function Navigation({ className }: NavigationProps) {
         >
           Humelixa<span className="text-gold">.</span>
         </a>
-        <Button variant="outline">
-          <a href="#consultation">Book Consultation</a>
-        </Button>
+
+        <CalButton variant="outline">Book Consultation</CalButton>
       </nav>
     </header>
   );
