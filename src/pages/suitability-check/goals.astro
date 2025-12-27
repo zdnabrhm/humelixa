@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import GoalsForm from "@/features/suitability/components/forms/goals-form";
+---
+
+<MainLayout
+  title="Investment Goals | Humelixa Suitability Check"
+  description="Tell us what's important to you in your real estate investment."
+>
+  <main class="flex min-h-screen items-center justify-center">
+    <GoalsForm client:load />
+  </main>
+</MainLayout>

@@ -1,4 +1,6 @@
 ---
+import Footer from "@/components/footer.astro";
+import Navigation from "@/components/navigation";
 import "@/index.css";
 
 interface Props {
@@ -22,10 +24,9 @@ const {
     <meta name="description" content={description} />
   </head>
   <body>
-    <!-- Marble Texture Overlay -->
-    <div class="marble-texture"></div>
-
+    <Navigation client:load />
     <slot />
+    <Footer />
 
     <script>
       // Intersection Observer for Reveal Animations

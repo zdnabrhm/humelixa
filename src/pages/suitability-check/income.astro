@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import IncomeForm from "@/features/suitability/components/forms/income-form";
+---
+
+<MainLayout
+  title="Monthly Income | Humelixa Suitability Check"
+  description="Tell us about your monthly net income."
+>
+  <main class="flex min-h-screen items-center justify-center">
+    <IncomeForm client:load />
+  </main>
+</MainLayout>

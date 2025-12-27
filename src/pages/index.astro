@@ -1,6 +1,5 @@
 ---
 import MainLayout from "@/layouts/main.astro";
-import Navigation from "@/components/navigation";
 import Hero from "@/components/hero.astro";
 // import PropertyCalculator from "@/components/property-calculator";
 import Narrative from "@/components/narrative.astro";
@@ -11,11 +10,9 @@ import Metrics from "@/components/metrics.astro";
 import Process from "@/components/process.astro";
 import Comparison from "@/components/comparison.astro";
 import Cta from "@/components/cta.astro";
-import Footer from "@/components/footer.astro";
 ---
 
 <MainLayout>
-  <Navigation client:load />
   <Hero />
   <!-- <PropertyCalculator /> -->
   <Narrative />
@@ -26,5 +23,4 @@ import Footer from "@/components/footer.astro";
   <Process />
   <Comparison />
   <Cta />
-  <Footer />
 </MainLayout>

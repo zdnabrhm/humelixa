@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import EmploymentForm from "@/features/suitability/components/forms/employment-form";
+---
+
+<MainLayout
+  title="Employment Status | Humelixa Suitability Check"
+  description="Tell us about your employment situation."
+>
+  <main class="flex min-h-screen items-center justify-center">
+    <EmploymentForm client:load />
+  </main>
+</MainLayout>

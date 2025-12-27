@@ -21,6 +21,7 @@
     "@fontsource-variable/inter": "^5.2.8",
     "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-form": "^1.27.6",
     "@types/canvas-confetti": "^1.9.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
@@ -28,11 +29,13 @@
     "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "jotai": "^2.16.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "shadcn": "^3.6.2",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.50.1",

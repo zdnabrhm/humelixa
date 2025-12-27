@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import InvestWithForm from "@/features/suitability/components/forms/invest-with-form";
+---
+
+<MainLayout
+  title="Investment Partner | Humelixa Suitability Check"
+  description="Tell us who you want to invest with."
+>
+  <main class="flex min-h-screen items-center justify-center">
+    <InvestWithForm client:load />
+  </main>
+</MainLayout>
