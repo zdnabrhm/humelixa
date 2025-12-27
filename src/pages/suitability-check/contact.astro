@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import ContactForm from "@/features/suitability/components/forms/contact-form";
+---
+
+<MainLayout
+  title="Contact Details | Humelixa Suitability Check"
+  description="Enter your contact details to receive your personalized results."
+>
+  <main class="flex min-h-screen items-center justify-center">
+    <ContactForm client:load />
+  </main>
+</MainLayout>

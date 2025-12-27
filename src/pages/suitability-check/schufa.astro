@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import SchufaForm from "@/features/suitability/components/forms/schufa-form";
+---
+
+<MainLayout
+  title="SCHUFA Status | Humelixa Suitability Check"
+  description="Tell us about your SCHUFA status."
+>
+  <main class="flex min-h-screen items-center justify-center">
+    <SchufaForm client:load />
+  </main>
+</MainLayout>

@@ -38,7 +38,7 @@ export default function Navigation({ className }: NavigationProps) {
       >
         <a
           href="/"
-          className="font-serif text-xl font-medium tracking-widest no-underline md:text-2xl"
+          className="font-serif text-xl font-medium no-underline md:text-2xl"
         >
           Humelixa<span className="text-gold">.</span>
         </a>
