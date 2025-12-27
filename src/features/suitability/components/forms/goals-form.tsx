@@ -3,13 +3,15 @@ import { useAtom } from "jotai";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Field,
+  FieldDescription,
   FieldLabel,
   FieldError,
   FieldGroup,
+  FieldLegend,
+  FieldSet,
 } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
-import { cn } from "@/lib/utils";
 import { suitabilityAtom } from "../../store";
 import { suitabilitySchema, type SuitabilityFormValues } from "../../schema";
 import { goalOptions } from "../../types";
@@ -44,11 +46,6 @@ export default function GoalsForm() {
         }}
       >
         <div className="space-y-8">
-          <div className="text-center">
-            <h2 className="heading-2">What is important to you?</h2>
-            <p className="text-muted-foreground mt-4">Select all that apply</p>
-          </div>
-
           <form.Field name="goals" mode="array">
             {(field) => {
               const isInvalid =
@@ -57,7 +54,13 @@ export default function GoalsForm() {
                 .value as SuitabilityFormValues["goals"];
 
               return (
-                <Field data-invalid={isInvalid}>
+                <FieldSet>
+                  <FieldLegend className="heading-2 mb-2 text-center">
+                    What is important to you?
+                  </FieldLegend>
+                  <FieldDescription className="mb-6 text-center">
+                    Select all that apply
+                  </FieldDescription>
                   <FieldGroup
                     data-slot="checkbox-group"
                     className="mx-auto grid max-w-lg gap-3"
@@ -68,50 +71,40 @@ export default function GoalsForm() {
                       );
 
                       return (
-                        <FieldLabel
+                        <Field
                           key={option.value}
-                          htmlFor={`goal-${option.value}`}
-                          className="cursor-pointer"
+                          orientation="horizontal"
+                          data-invalid={isInvalid}
                         >
-                          <div
-                            className={cn(
-                              "border-gold/20 hover:border-gold/50 flex items-center gap-4 border px-6 py-4 transition-all",
-                              isChecked && "border-gold bg-gold/5",
-                            )}
-                          >
-                            <Checkbox
-                              id={`goal-${option.value}`}
-                              checked={isChecked}
-                              onCheckedChange={(checked) => {
-                                if (checked) {
-                                  field.pushValue(
-                                    option.value as SuitabilityFormValues["goals"][number],
-                                  );
-                                } else {
-                                  const index = selectedGoals.indexOf(
-                                    option.value as SuitabilityFormValues["goals"][number],
-                                  );
-                                  if (index > -1) {
-                                    field.removeValue(index);
-                                  }
+                          <Checkbox
+                            id={`goal-${option.value}`}
+                            name={field.name}
+                            aria-invalid={isInvalid}
+                            checked={isChecked}
+                            onCheckedChange={(checked) => {
+                              if (checked) {
+                                field.pushValue(
+                                  option.value as SuitabilityFormValues["goals"][number],
+                                );
+                              } else {
+                                const index = selectedGoals.indexOf(
+                                  option.value as SuitabilityFormValues["goals"][number],
+                                );
+                                if (index > -1) {
+                                  field.removeValue(index);
                                 }
-                              }}
-                            />
-                            <span className="font-medium">{option.label}</span>
-                          </div>
-                        </FieldLabel>
+                              }
+                            }}
+                          />
+                          <FieldLabel htmlFor={`goal-${option.value}`}>
+                            {option.label}
+                          </FieldLabel>
+                        </Field>
                       );
                     })}
                   </FieldGroup>
-                  {isInvalid && field.state.meta.errors.length > 0 && (
-                    <FieldError
-                      errors={field.state.meta.errors.map((e) => ({
-                        message: String(e),
-                      }))}
-                      className="text-center"
-                    />
-                  )}
-                </Field>
+                  {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                </FieldSet>
               );
             }}
           </form.Field>

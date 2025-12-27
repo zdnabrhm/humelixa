@@ -1,17 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { CheckCircleIcon, CalendarIcon } from "@phosphor-icons/react";
+import { CheckCircleIcon } from "@phosphor-icons/react";
 import type { SuitabilityFormValues } from "../schema";
 import { goalOptions, timelineOptions, incomeOptions } from "../types";
 
 interface ResultsScreenProps {
   values: SuitabilityFormValues;
-  onBookConsultation: () => void;
 }
 
-export function ResultsScreen({
-  values,
-  onBookConsultation,
-}: ResultsScreenProps) {
+export function ResultsScreen({ values }: ResultsScreenProps) {
   const selectedGoals = goalOptions.filter((g) =>
     values.goals.includes(g.value as SuitabilityFormValues["goals"][number]),
   );
@@ -76,26 +71,6 @@ export function ResultsScreen({
             <p className="mt-1 font-medium capitalize">{values.useEquity}</p>
           </div>
         </div>
-      </div>
-
-      <div className="space-y-6">
-        <div>
-          <h3 className="font-serif text-2xl font-medium">What's Next?</h3>
-          <p className="text-muted-foreground mt-2">
-            Book a free consultation with our experts to discuss your
-            personalized investment strategy.
-          </p>
-        </div>
-
-        <Button size="lg" onClick={onBookConsultation} className="gap-2">
-          <CalendarIcon className="size-5" />
-          Book Free Consultation
-        </Button>
-
-        <p className="text-muted-foreground text-sm">
-          We've sent a confirmation email to{" "}
-          <span className="text-foreground">{values.email}</span>
-        </p>
       </div>
     </div>
   );

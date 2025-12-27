@@ -208,6 +208,10 @@
     @apply mx-auto max-w-7xl px-5 py-32 md:px-8;
   }
 
+  .form-container {
+    @apply mx-auto max-w-3xl space-y-6 px-4 py-8;
+  }
+
   .tagline {
     @apply text-gold font-mono text-sm tracking-widest uppercase;
   }

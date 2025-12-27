@@ -12,10 +12,6 @@ export default function ResultsPage() {
     console.log("Suitability Form Submission:", formData);
   }, [formData]);
 
-  const handleBookConsultation = () => {
-    window.open("https://cal.com", "_blank");
-  };
-
   // Check if we have the required data
   const hasRequiredData = !!(formData.name && formData.email && formData.phone);
 
@@ -38,10 +34,7 @@ export default function ResultsPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
-      <ResultsScreen
-        values={formData as SuitabilityFormValues}
-        onBookConsultation={handleBookConsultation}
-      />
+      <ResultsScreen values={formData as SuitabilityFormValues} />
     </div>
   );
 }
