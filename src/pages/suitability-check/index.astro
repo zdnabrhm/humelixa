@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import { SuitabilityWizard } from "@/features/suitability/components/wizard";
+---
+
+<MainLayout
+  title="Free Suitability Check | Humelixa"
+  description="Find out in less than 2 minutes if you qualify for our German real estate investment program."
+>
+  <main class="flex min-h-screen items-center justify-center pt-16">
+    <SuitabilityWizard client:load />
+  </main>
+</MainLayout>
