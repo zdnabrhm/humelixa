@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { suitabilityAtom } from "../../store";
-import { suitabilitySchema, type SuitabilityFormValues } from "../../schema";
+import { suitabilitySchema } from "../../schema";
 import { FormProgress } from "../form-progress";
 
 const contactSchema = suitabilitySchema.pick({
@@ -27,7 +27,7 @@ export default function ContactForm() {
     defaultValues: {
       name: (formData.name ?? "") as string,
       email: (formData.email ?? "") as string,
-      phone: (formData.phone ?? "+49 ") as string,
+      phone: (formData.phone ?? "") as string,
     },
     validators: {
       onSubmit: contactSchema,
@@ -73,7 +73,7 @@ export default function ContactForm() {
                       value={field.state.value as string}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
-                      placeholder="Your full name"
+                      placeholder="John Doe"
                       aria-invalid={isInvalid}
                     />
                     {isInvalid && field.state.meta.errors.length > 0 && (
@@ -103,7 +103,7 @@ export default function ContactForm() {
                       value={field.state.value as string}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
-                      placeholder="you@example.com"
+                      placeholder="john@mail.com"
                       aria-invalid={isInvalid}
                     />
                     {isInvalid && field.state.meta.errors.length > 0 && (
@@ -133,7 +133,7 @@ export default function ContactForm() {
                       value={field.state.value as string}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
-                      placeholder="+49 123 456 7890"
+                      placeholder="+491234567890"
                       aria-invalid={isInvalid}
                     />
                     {isInvalid && field.state.meta.errors.length > 0 && (
