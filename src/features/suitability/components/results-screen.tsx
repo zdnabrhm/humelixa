@@ -1,9 +1,9 @@
 import {
   CheckCircleIcon,
-  EnvelopeIcon,
   PhoneIcon,
   CalendarIcon,
 } from "@phosphor-icons/react";
+import { Button } from "@/components/ui/button";
 import type { SuitabilityFormValues } from "../schema";
 
 interface ResultsScreenProps {
@@ -36,18 +36,6 @@ export function ResultsScreen({ values }: ResultsScreenProps) {
         <div className="space-y-6 text-left">
           <div className="flex gap-4">
             <div className="bg-gold/10 flex size-10 shrink-0 items-center justify-center rounded-full">
-              <EnvelopeIcon className="text-gold size-5" />
-            </div>
-            <div>
-              <p className="font-medium">Check your inbox</p>
-              <p className="text-muted-foreground text-sm">
-                We'll send a confirmation to {values.email}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <div className="bg-gold/10 flex size-10 shrink-0 items-center justify-center rounded-full">
               <PhoneIcon className="text-gold size-5" />
             </div>
             <div>
@@ -72,14 +60,9 @@ export function ResultsScreen({ values }: ResultsScreenProps) {
         </div>
       </div>
 
-      <div className="text-muted-foreground text-sm">
-        <p>
-          Questions? Email us at{" "}
-          <a href="mailto:hello@humelixa.com" className="text-gold underline">
-            hello@humelixa.com
-          </a>
-        </p>
-      </div>
+      <Button variant="outline" href="/">
+        Back to Home
+      </Button>
     </div>
   );
 }
