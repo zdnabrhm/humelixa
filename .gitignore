@@ -18,6 +18,13 @@ pnpm-debug.log*
 .env
 .env.production
 
+# service account credentials (NEVER commit)
+service-credentials.json
+*.credentials.json
+
+# Cloudflare Pages local dev vars
+.dev.vars
+
 # macOS-specific files
 .DS_Store
 

@@ -1,5 +1,4 @@
 import {
-  IntentValue,
   YesNoValue,
   TimelineValue,
   GoalValue,
@@ -15,19 +14,6 @@ export interface FormOption {
   label: string;
   description?: string;
 }
-
-export const intentOptions: FormOption[] = [
-  {
-    value: IntentValue.TEST,
-    label: "Test suitability now",
-    description: "Quick 2-minute check to see if you qualify",
-  },
-  {
-    value: IntentValue.ADVICE,
-    label: "Get free advice now",
-    description: "Speak with our experts about your situation",
-  },
-];
 
 export const yesNoOptions: FormOption[] = [
   { value: YesNoValue.YES, label: "Yes" },

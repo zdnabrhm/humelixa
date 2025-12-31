@@ -1,21 +1,17 @@
-import { CheckCircleIcon } from "@phosphor-icons/react";
+import {
+  CheckCircleIcon,
+  PhoneIcon,
+  CalendarIcon,
+} from "@phosphor-icons/react";
+import { Button } from "@/components/ui/button";
 import type { SuitabilityFormValues } from "../schema";
-import { goalOptions, timelineOptions, incomeOptions } from "../types";
 
 interface ResultsScreenProps {
   values: SuitabilityFormValues;
 }
 
 export function ResultsScreen({ values }: ResultsScreenProps) {
-  const selectedGoals = goalOptions.filter((g) =>
-    values.goals.includes(g.value as SuitabilityFormValues["goals"][number]),
-  );
-  const selectedTimeline = timelineOptions.find(
-    (t) => t.value === values.timeline,
-  );
-  const selectedIncome = incomeOptions.find(
-    (i) => i.value === values.netIncome,
-  );
+  const firstName = values.name.split(" ")[0];
 
   return (
     <div className="space-y-12 text-center">
@@ -25,53 +21,48 @@ export function ResultsScreen({ values }: ResultsScreenProps) {
         </div>
 
         <div>
-          <h2 className="heading-2">
-            Great news, {values.name.split(" ")[0]}!
-          </h2>
+          <h2 className="heading-2">Thank you, {firstName}!</h2>
           <p className="text-muted-foreground mt-4 text-lg">
-            Based on your answers, you appear to be a strong candidate for our
-            real estate investment program.
+            We've received your information and will be in touch soon.
           </p>
         </div>
       </div>
 
       <div className="border-gold/20 mx-auto max-w-lg border p-8">
         <h3 className="text-gold mb-6 font-mono text-sm tracking-widest uppercase">
-          Your Profile Summary
+          What happens next?
         </h3>
 
-        <div className="space-y-4 text-left">
-          <div className="border-gold/10 border-b pb-4">
-            <p className="text-muted-foreground text-xs tracking-wide uppercase">
-              Investment Goals
-            </p>
-            <p className="mt-1 font-medium">
-              {selectedGoals.map((g) => g.label).join(", ")}
-            </p>
+        <div className="space-y-6 text-left">
+          <div className="flex gap-4">
+            <div className="bg-gold/10 flex size-10 shrink-0 items-center justify-center rounded-full">
+              <PhoneIcon className="text-gold size-5" />
+            </div>
+            <div>
+              <p className="font-medium">Expect a call</p>
+              <p className="text-muted-foreground text-sm">
+                Our team will reach out within 1-2 business days
+              </p>
+            </div>
           </div>
 
-          <div className="border-gold/10 border-b pb-4">
-            <p className="text-muted-foreground text-xs tracking-wide uppercase">
-              Timeline
-            </p>
-            <p className="mt-1 font-medium">{selectedTimeline?.label}</p>
-          </div>
-
-          <div className="border-gold/10 border-b pb-4">
-            <p className="text-muted-foreground text-xs tracking-wide uppercase">
-              Monthly Net Income
-            </p>
-            <p className="mt-1 font-medium">{selectedIncome?.label}</p>
-          </div>
-
-          <div>
-            <p className="text-muted-foreground text-xs tracking-wide uppercase">
-              Using Equity
-            </p>
-            <p className="mt-1 font-medium capitalize">{values.useEquity}</p>
+          <div className="flex gap-4">
+            <div className="bg-gold/10 flex size-10 shrink-0 items-center justify-center rounded-full">
+              <CalendarIcon className="text-gold size-5" />
+            </div>
+            <div>
+              <p className="font-medium">Free consultation</p>
+              <p className="text-muted-foreground text-sm">
+                We'll discuss your goals and answer any questions
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      <Button variant="outline" href="/">
+        Back to Home
+      </Button>
     </div>
   );
 }

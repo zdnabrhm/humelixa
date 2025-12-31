@@ -1,10 +1,5 @@
 import { z } from "zod";
 
-export const IntentValue = {
-  TEST: "test",
-  ADVICE: "advice",
-} as const;
-
 export const YesNoValue = {
   YES: "yes",
   NO: "no",
@@ -59,7 +54,6 @@ export const InvestWithValue = {
 } as const;
 
 export const suitabilitySchema = z.object({
-  intent: z.enum([IntentValue.TEST, IntentValue.ADVICE]),
   useEquity: z.enum([YesNoValue.YES, YesNoValue.NO]),
   timeline: z.enum([
     TimelineValue.ASAP,
@@ -114,3 +108,24 @@ export const suitabilitySchema = z.object({
 });
 
 export type SuitabilityFormValues = z.infer<typeof suitabilitySchema>;
+
+export const stepSchemas = {
+  "goals-timeline": suitabilitySchema.pick({ goals: true, timeline: true }),
+  financial: suitabilitySchema.pick({
+    useEquity: true,
+    netIncome: true,
+    investWith: true,
+  }),
+  situation: suitabilitySchema
+    .pick({
+      residenceStatus: true,
+      employmentStatus: true,
+    })
+    .extend({
+      employmentType: suitabilitySchema.shape.employmentType,
+    }),
+  schufa: suitabilitySchema.pick({ schufaEntries: true }),
+  contact: suitabilitySchema.pick({ name: true, email: true, phone: true }),
+} as const;
+
+export type StepId = keyof typeof stepSchemas;
