@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { CalButton } from "./cal-button";
+import logo from "@/assets/logo.svg";
 
 interface NavigationProps {
   className?: string;
@@ -38,9 +39,12 @@ export default function Navigation({ className }: NavigationProps) {
       >
         <a
           href="/"
-          className="font-serif text-xl font-medium no-underline md:text-2xl"
+          className="flex items-center gap-0.5 font-serif text-xl font-medium no-underline md:text-2xl"
         >
-          Humelixa<span className="text-gold">.</span>
+          <img src={logo.src} alt="" className="size-6" />
+          <span>
+            Humelixa<span className="text-gold">.</span>
+          </span>
         </a>
 
         <CalButton variant="outline">Book Consultation</CalButton>
