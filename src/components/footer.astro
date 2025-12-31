@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import FooterLinkSection from "./footer-link-section.astro";
+import logo from "@/assets/logo.svg";
 
 const footerLinks = {
   navigate: [
@@ -31,9 +33,12 @@ const footerLinks = {
     >
       <!-- Brand -->
       <div class="max-w-xs space-y-4">
-        <h2 class="font-serif text-2xl font-medium">
-          Humelixa<span class="text-gold">.</span>
-        </h2>
+        <a href="/" class="flex items-center gap-0.5 no-underline">
+          <Image src={logo} alt="" class="size-6" />
+          <span class="font-serif text-2xl font-medium">
+            Humelixa<span class="text-gold">.</span>
+          </span>
+        </a>
         <p class="text-sm leading-relaxed text-neutral-400">
           Investment property consulting for international professionals in
           Germany. From strategy to purchase to hands-off management.
