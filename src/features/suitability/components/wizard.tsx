@@ -61,14 +61,6 @@ export function SuitabilityWizard() {
         newErrors[field] = issue.message;
       });
 
-      if (
-        stepId === "situation" &&
-        formData.employmentStatus === EmploymentValue.EMPLOYED &&
-        !formData.employmentType
-      ) {
-        newErrors.employmentType = "Please select your employment type";
-      }
-
       setErrors(newErrors);
       return false;
     }
