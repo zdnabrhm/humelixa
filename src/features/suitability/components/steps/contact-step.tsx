@@ -1,3 +1,4 @@
+import { Turnstile } from "@marsidev/react-turnstile";
 import { Input } from "@/components/ui/input";
 import {
   Field,
@@ -61,7 +62,19 @@ export function ContactStep({ values, onChange, errors }: ContactStepProps) {
           {errors?.phone && <FieldError errors={[{ message: errors.phone }]} />}
         </Field>
 
-        <FieldDescription className="text-center">
+        <Field data-invalid={!!errors?.turnstileToken}>
+          <Turnstile
+            siteKey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+            onSuccess={(token) =>
+              onChange({ ...values, turnstileToken: token })
+            }
+          />
+          {errors?.turnstileToken && (
+            <FieldError errors={[{ message: errors.turnstileToken }]} />
+          )}
+        </Field>
+
+        <FieldDescription className="text-center text-balance">
           We'll use this to send you a free & non-binding consultation offer.
         </FieldDescription>
       </FieldGroup>

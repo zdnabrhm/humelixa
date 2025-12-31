@@ -143,7 +143,12 @@ export function SuitabilityWizard() {
       case "schufa":
         return !!formData.schufaEntries;
       case "contact":
-        return !!formData.name && !!formData.email && !!formData.phone;
+        return (
+          !!formData.name &&
+          !!formData.email &&
+          !!formData.phone &&
+          !!formData.turnstileToken
+        );
       default:
         return false;
     }
