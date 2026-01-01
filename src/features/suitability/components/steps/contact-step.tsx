@@ -68,6 +68,8 @@ export function ContactStep({ values, onChange, errors }: ContactStepProps) {
             onSuccess={(token) =>
               onChange({ ...values, turnstileToken: token })
             }
+            onExpire={() => onChange({ ...values, turnstileToken: "" })}
+            onError={() => onChange({ ...values, turnstileToken: "" })}
           />
           {errors?.turnstileToken && (
             <FieldError errors={[{ message: errors.turnstileToken }]} />

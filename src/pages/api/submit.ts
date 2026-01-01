@@ -97,7 +97,8 @@ export const POST: APIRoute = async ({ request }) => {
         body: `secret=${import.meta.env.TURNSTILE_SECRET_KEY}&response=${data.turnstileToken}`,
       },
     );
-    if (!(await turnstileRes.json()).success) {
+    const turnstileData = await turnstileRes.json();
+    if (!turnstileData.success) {
       return new Response(
         JSON.stringify({
           success: false,
