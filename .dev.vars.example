@@ -1,4 +1,5 @@
-TURNSTILE_SECRET_KEY="your-turnstile-secret-key"
 GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
 GOOGLE_SERVICE_ACCOUNT_EMAIL="your-service-account@project.iam.gserviceaccount.com"
 SPREADSHEET_ID="your-spreadsheet-id"
+
+TURNSTILE_SECRET_KEY="your-turnstile-secret-key"

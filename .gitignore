@@ -24,6 +24,7 @@ service-credentials.json
 
 # Cloudflare Pages local dev vars
 .dev.vars
+.wrangler
 
 # macOS-specific files
 .DS_Store
