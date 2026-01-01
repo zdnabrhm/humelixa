@@ -77,8 +77,10 @@ async function getAccessToken(
   return access_token;
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
+    const { env } = locals.runtime;
+
     const data: SuitabilityFormValues = await request.json();
 
     const validation = suitabilitySchema.safeParse(data);
@@ -94,7 +96,7 @@ export const POST: APIRoute = async ({ request }) => {
       {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${import.meta.env.TURNSTILE_SECRET_KEY}&response=${data.turnstileToken}`,
+        body: `secret=${env.TURNSTILE_SECRET_KEY}&response=${data.turnstileToken}`,
       },
     );
     const turnstileData = await turnstileRes.json();
@@ -108,9 +110,9 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const privateKey = import.meta.env.GOOGLE_PRIVATE_KEY;
-    const clientEmail = import.meta.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-    const spreadsheetId = import.meta.env.SPREADSHEET_ID;
+    const privateKey = env.GOOGLE_PRIVATE_KEY;
+    const clientEmail = env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+    const spreadsheetId = env.SPREADSHEET_ID;
 
     if (!privateKey || !clientEmail || !spreadsheetId) {
       console.error("Missing env vars");
