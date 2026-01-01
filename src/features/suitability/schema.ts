@@ -105,6 +105,7 @@ export const suitabilitySchema = z.object({
     .string()
     .min(6, "Please enter a valid phone number")
     .regex(/^\+?[0-9\s-]+$/, "Please enter a valid phone number"),
+  turnstileToken: z.string().min(1, "Please verify you're human"),
 });
 
 export type SuitabilityFormValues = z.infer<typeof suitabilitySchema>;
@@ -125,7 +126,12 @@ export const stepSchemas = {
       employmentType: suitabilitySchema.shape.employmentType,
     }),
   schufa: suitabilitySchema.pick({ schufaEntries: true }),
-  contact: suitabilitySchema.pick({ name: true, email: true, phone: true }),
+  contact: suitabilitySchema.pick({
+    name: true,
+    email: true,
+    phone: true,
+    turnstileToken: true,
+  }),
 } as const;
 
 export type StepId = keyof typeof stepSchemas;

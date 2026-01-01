@@ -89,6 +89,25 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    const turnstileRes = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${import.meta.env.TURNSTILE_SECRET_KEY}&response=${data.turnstileToken}`,
+      },
+    );
+    const turnstileData = await turnstileRes.json();
+    if (!turnstileData.success) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: "CAPTCHA verification failed",
+        }),
+        { status: 400, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
     const privateKey = import.meta.env.GOOGLE_PRIVATE_KEY;
     const clientEmail = import.meta.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
     const spreadsheetId = import.meta.env.SPREADSHEET_ID;
