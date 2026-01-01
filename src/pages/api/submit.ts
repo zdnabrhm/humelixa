@@ -79,8 +79,6 @@ async function getAccessToken(
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
-    const { env } = locals.runtime;
-
     const data: SuitabilityFormValues = await request.json();
 
     const validation = suitabilitySchema.safeParse(data);
@@ -90,6 +88,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
         { status: 400, headers: { "Content-Type": "application/json" } },
       );
     }
+
+    const { env } = locals.runtime;
 
     const turnstileRes = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -110,17 +110,23 @@ export const POST: APIRoute = async ({ request, locals }) => {
       );
     }
 
-    const privateKey = env.GOOGLE_PRIVATE_KEY;
+    const privateKeyRaw = env.GOOGLE_PRIVATE_KEY;
     const clientEmail = env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
     const spreadsheetId = env.SPREADSHEET_ID;
 
-    if (!privateKey || !clientEmail || !spreadsheetId) {
-      console.error("Missing env vars");
+    if (!privateKeyRaw || !clientEmail || !spreadsheetId) {
+      console.error("Missing env vars:", {
+        privateKeyRaw: !!privateKeyRaw,
+        clientEmail: !!clientEmail,
+        spreadsheetId: !!spreadsheetId,
+      });
       return new Response(
         JSON.stringify({ success: false, error: "Server configuration error" }),
         { status: 500, headers: { "Content-Type": "application/json" } },
       );
     }
+
+    const privateKey = privateKeyRaw.replace(/\\n/g, "\n");
 
     const accessToken = await getAccessToken(clientEmail, privateKey);
 
