@@ -60,9 +60,9 @@ export function ResultsScreen({ values }: ResultsScreenProps) {
         </div>
       </div>
 
-      <Button variant="outline">
-        <a href="/">Back to Home</a>
-      </Button>
+      <a href="/">
+        <Button variant="outline">Back to Home</Button>
+      </a>
     </div>
   );
 }
