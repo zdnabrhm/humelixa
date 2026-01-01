@@ -9,7 +9,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://humelixa.com",
+  site: "https://humelixa.pages.dev",
   adapter: cloudflare({ imageService: "passthrough" }),
   vite: {
     plugins: [tailwindcss()],
