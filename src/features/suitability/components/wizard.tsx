@@ -36,6 +36,8 @@ export function SuitabilityWizard() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [submittedData, setSubmittedData] =
+    useState<SuitabilityFormValues | null>(null);
   const [direction, setDirection] = useState<"forward" | "backward">("forward");
 
   useEffect(() => {
@@ -89,6 +91,7 @@ export function SuitabilityWizard() {
       setIsSubmitting(true);
       try {
         await submitToGoogleSheets(formData as SuitabilityFormValues);
+        setSubmittedData(formData as SuitabilityFormValues);
         setFormData({});
         setIsComplete(true);
       } catch (error) {
@@ -119,7 +122,7 @@ export function SuitabilityWizard() {
   if (isComplete) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16">
-        <ResultsScreen values={formData as SuitabilityFormValues} />
+        <ResultsScreen values={submittedData!} />
       </div>
     );
   }
