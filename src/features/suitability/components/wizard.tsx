@@ -89,6 +89,7 @@ export function SuitabilityWizard() {
       setIsSubmitting(true);
       try {
         await submitToGoogleSheets(formData as SuitabilityFormValues);
+        setFormData({});
         setIsComplete(true);
       } catch (error) {
         console.error("Submission failed:", error);
